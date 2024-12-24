@@ -1,10 +1,14 @@
 //?  Модель для збереження інформації про замовлення
+using ProductEntityNamespace;
+using UserEntityNamespace;
 
-namespace OrderEntity{
+namespace OrderEntityNamespace{
 public class OrderEntity {
-    public int Id { get; set; } // ID замовлення
-    public int UserId { get; set; } // ID користувача
-    public List<int> ProductIds { get; set; } = new List<int>(); // список товарів
+    public int OrderId { get; set; } // ID замовлення
+    public UserEntity User { get; set; } // ID користувача
+    public List<ProductEntity> Products { get; set; } = new List<ProductEntity>(); // список товарів
+    public int Quantity { get; set; }
+ 
     public decimal TotalAmount { get; set; } // сума
 }
 }

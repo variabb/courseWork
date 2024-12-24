@@ -1,7 +1,13 @@
+//?  Модель для збереження інформації про товари
 
-public class ProductEntity {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    public int Quantity { get; set; }
+namespace ProductEntityNamespace
+{
+    public class ProductEntity
+    {
+        public int ProductId { get; set; } // id продукту
+        public string ProductName { get; set; } // назва продукту
+    //! public string Description { get; set; }
+        public decimal Price { get; set; } // ціна
+        public int Quantity { get; set; } // доступна кількість
+    }
 }
