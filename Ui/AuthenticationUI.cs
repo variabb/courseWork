@@ -58,7 +58,7 @@ namespace AuthenticationUINamespace
 
         if (authService.UserExistsByUsername(username))
     {
-        
+
         Console.WriteLine("Користувач з таким ім'ям вже існує.");
     }
     else if (authService.Register(username, password))
@@ -75,7 +75,7 @@ namespace AuthenticationUINamespace
 }
 
 
-                public static void UserMenu(string username, IOrderProductService orderProductService, IUserService userService, IProductService productService)
+                            public static void UserMenu(string username, IOrderProductService orderProductService, IUserService userService, IProductService productService)
             {
                 var user = userService.GetByUsername(username);
 
@@ -96,7 +96,8 @@ namespace AuthenticationUINamespace
                     Console.WriteLine("1. Переглянути товари");
                     Console.WriteLine("2. Управління балансом");
                     Console.WriteLine("3. Історія замовлень");
-                    Console.WriteLine("4. Вийти");
+                    Console.WriteLine("4. Переглянути баланс");
+                    Console.WriteLine("5. Вийти");
 
                     string? choice = Console.ReadLine();
                     switch (choice)
@@ -104,7 +105,7 @@ namespace AuthenticationUINamespace
                         case "1":
                             var productUI = new ProductUI(orderProductService);
                             productUI.ViewProducts(productService, userService, userId);
-                        break;
+                            break;
                         case "2":
                             UserUI.ManageBalance(userService);
                             break;
@@ -112,6 +113,13 @@ namespace AuthenticationUINamespace
                             OrderUI.ViewOrderHistory(userId, orderProductService);
                             break;
                         case "4":
+                            // Перегляд поточного балансу
+                            decimal balance = userService.GetBalance(userId);
+                            Console.WriteLine($"Ваш поточний баланс: {balance} грн.");
+                            Console.WriteLine("Натисніть Enter, щоб повернутися до меню...");
+                            Console.ReadLine();
+                            break;
+                        case "5":
                             // Очищення сесії
                             Session.Clear();
                             Console.WriteLine("Ви вийшли з системи.");
@@ -123,6 +131,7 @@ namespace AuthenticationUINamespace
                     }
                 }
             }
+
 
 
     }

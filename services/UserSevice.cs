@@ -41,6 +41,11 @@ namespace UserServiceNamespace
         {
             return _userRepository.IsUserExistById(userId);
         }
+       public decimal GetBalance(int userId)
+        {
+            var user = _userRepository.Read(userId);
+            return user?.Balance ?? 0; // Якщо користувача немає, повертаємо 0
+        }
          public void UpdateBalance(int userId, decimal amount)
         {
             var user = _userRepository.Read(userId);
