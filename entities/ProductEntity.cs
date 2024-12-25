@@ -6,7 +6,6 @@ namespace ProductEntityNamespace
     {
         public int ProductId { get; set; } // id продукту
         public string ProductName { get; set; } // назва продукту
-    //! public string Description { get; set; }
         public decimal Price { get; set; } // ціна
         public int Quantity { get; set; } // доступна кількість
     }
