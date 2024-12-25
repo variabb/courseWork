@@ -12,3 +12,4 @@ D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8
 D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\courseWork.pdb
 D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\courseWork.genruntimeconfig.cache
 D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\ref\courseWork.dll
+D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\courseWork.sourcelink.json

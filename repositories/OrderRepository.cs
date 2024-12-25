@@ -5,7 +5,7 @@ using dataBase;
 
 namespace OrderRepositoryNamespace
 {
-    public class OrderRepository : IOrderEntity
+    public class OrderRepository : IOrderRepository
     {
          private DbContext _dbContext; 
 
