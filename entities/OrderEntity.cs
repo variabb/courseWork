@@ -5,7 +5,7 @@ using UserEntityNamespace;
 namespace OrderEntityNamespace{
 public class OrderEntity {
     public int OrderId { get; set; } // ID замовлення
-    public UserEntity User { get; set; } // ID користувача
+    public int UserId { get; set; } // ID користувача
     public List<ProductEntity> Products { get; set; } = new List<ProductEntity>(); // список товарів
     public int Quantity { get; set; }
  

@@ -1,8 +1,8 @@
 using  OrderEntityNamespace;
 
-namespace IOrderEntityNamespace
+namespace IOrderRepositoryNamespace
 {
-    public interface IOrderEntity
+    public interface IOrderRepository
     {
         int Create(OrderEntity account); //* Створює нове замовлення. account — це об'єкт типу OrderEntity
         IEnumerable<OrderEntity?> GetAll(); //* Метод повертає колекцію об'єктів типу OrderEntity, що дозволяє отримати список усіх продуктів.

@@ -1,5 +1,5 @@
 using OrderEntityNamespace;
-using IOrderEntityNamespace;
+using IOrderRepositoryNamespace;
 using dataBase;
 
 
