@@ -19,32 +19,33 @@ using MenuUINamespace;
 using dataBase;
 using IOrderRepositoryNamespace;
 using OrderRepositoryNamespace;
+using DatabaseSeederNamespace;
 
 class Program
 {
     static void Main(string[] args)
     {
-        // Створення контексту бази даних (припустимо, DbContext реалізовано у вашому проєкті)
-        DbContext dbContext = new DbContext();
+        // Ініціалізація бази даних
+        var dbContext = new DbContext();
+        var databaseSeeder = new DatabaseSeeder(dbContext);
+        databaseSeeder.Seed();
 
-        // Ініціалізація репозиторіїв з передачею DbContext
+        // Ініціалізація репозиторіїв
+        var productRepository = new ProductRepository(dbContext);
         IUserRepository userRepository = new UserRepository(dbContext);
-        IProductRepository productRepository = new ProductRepository(dbContext);
-        IOrderRepository orderRepository = new OrderRepository(dbContext); // Додано репозиторій для замовлень
+        IOrderRepository orderRepository = new OrderRepository(dbContext);
 
         // Ініціалізація сервісів
         IUserService userService = new UserService(userRepository);
         IProductService productService = new ProductService(productRepository);
-
-        // OrderService і TransactionService також можуть вимагати залежностей
-        IOrderService orderService = new OrderService(orderRepository); // Використовуємо orderRepository
+        IOrderService orderService = new OrderService(orderRepository);
         ITransactionService transactionService = new TransactionService(userService);
 
-        // Ініціалізація OrderProductService і AuthenticationService
+        // Ініціалізація логіки для замовлень та автентифікації
         IOrderProductService orderProductService = new OrderProductService(orderService, productService, transactionService);
         IAuthenticationService authService = new AuthenticationService(userService);
 
-        // Ініціалізація залежностей для UserUI
+        // Ініціалізація інтерфейсу користувача
         UserUI.Initialize(transactionService);
 
         // Запуск головного меню

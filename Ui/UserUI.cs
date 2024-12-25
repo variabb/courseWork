@@ -25,20 +25,45 @@ namespace UserUINamespace
             switch (choice)
             {
                 case "1":
-                    Console.Write("Введіть суму для поповнення: ");
-                    decimal amount;
-                    if (decimal.TryParse(Console.ReadLine(), out amount))
-                    {
-                        // Викликаємо метод через екземпляр _transactionService
-                        _transactionService.AddBalance(Session.UserId.Value, amount);
-                        Console.WriteLine("Баланс успішно поповнено!");
-                    }
-                    break;
+                   // Перевіряємо, чи існує активний користувач
+            if (!Session.UserId.HasValue)
+            {
+                Console.WriteLine("Помилка: користувач не авторизований.");
+                Console.WriteLine("Натисніть Enter, щоб повернутися до меню...");
+                Console.ReadLine();
+                return;
+            }
+
+            Console.Write("Введіть суму для поповнення: ");
+            decimal amount;
+            if (decimal.TryParse(Console.ReadLine(), out amount))
+            {
+                // Викликаємо метод через екземпляр _transactionService
+                bool success = _transactionService.AddBalance(Session.UserId.Value, amount);
+
+                if (success)
+                {
+                    Console.WriteLine("Баланс успішно поповнено!");
+                }
+                else
+                {
+                    Console.WriteLine("Помилка: не вдалося поповнити баланс. Перевірте введену суму.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Некоректне значення. Спробуйте ще раз.");
+            }
+
+            Console.WriteLine("Натисніть Enter, щоб повернутися до меню...");
+            Console.ReadLine();
+            break;
                 case "2":
                     return;
                 default:
-                    Console.WriteLine("Некоректний вибір.");
-                    break;
+            Console.WriteLine("Некоректний вибір. Натисніть Enter, щоб спробувати ще раз.");
+            Console.ReadLine();
+            break;
             }
         }
     }

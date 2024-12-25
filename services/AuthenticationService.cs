@@ -48,5 +48,9 @@ namespace AuthentificationServiceNamespace
 
             return true; // Вхід успішний
         }
+         public bool UserExistsByUsername(string username)
+        {
+            return _userService.GetByUsername(username) != null;
+        }
     }
 }
