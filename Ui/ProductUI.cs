@@ -9,7 +9,7 @@ namespace ProductUINamespace
     {
         private readonly IOrderProductService _orderProductService;
 
-        // Конструктор для ін'єкції залежності
+        // Конструктор
         public ProductUI(IOrderProductService orderProductService)
         {
             _orderProductService = orderProductService;

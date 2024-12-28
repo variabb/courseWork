@@ -10,7 +10,7 @@ namespace IUserServiceNamespace
         void Update(UserEntity user); //* Оновлення даних користувача
         void Delete(int userId); //* Видалення користувача
         bool IsUserExistById(int userId); //* Перевірка існування користувача за ID
-        decimal GetBalance(int userId); // Новий метод для отримання балансу
+        decimal GetBalance(int userId); //* метод для отримання балансу
         void UpdateBalance(int userId, decimal amount); //* Оновлення балансу користувача
     }
 }

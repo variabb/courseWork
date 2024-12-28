@@ -26,7 +26,7 @@ namespace TransactionServiceNamespace
 
             // Отримання користувача
             var user = _userService.Get(userId);
-            if (user == null || user.Balance < amount)
+            if (user == null || user.Balance < amount) //чи баланс користувача не менший за суму
             {
                 return false; // Недостатньо коштів або користувач не знайдений
             }

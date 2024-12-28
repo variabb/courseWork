@@ -12,3 +12,4 @@ public class OrderEntity {
     public decimal TotalAmount { get; set; } // сума
 }
 }
+

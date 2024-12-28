@@ -12,69 +12,69 @@ namespace AuthenticationUINamespace
     public  class AuthenticationUI
     {
         Session session = new Session();
-   public  void Login(IAuthenticationService authService, IOrderProductService orderProductService, IUserService userService, IProductService productService)
-{
-          
-    Console.Clear();
-    Console.WriteLine("Вхід в систему:");
-    Console.Write("Ім'я користувача: ");
-    string username = Console.ReadLine();
-    Console.Write("Пароль: ");
-    string password = Console.ReadLine();
-
-    if (authService.Login(username, password))
-    {
-        // Отримуємо дані користувача
-        var user = userService.GetByUsername(username);
-        if (user != null)
+        public  void Login(IAuthenticationService authService, IOrderProductService orderProductService, IUserService userService, IProductService productService)
         {
-            // Оновлюємо Session
-            session.UserId = user.UserId;
-            session.Username = user.Username;
+                
+            Console.Clear();
+            Console.WriteLine("Вхід в систему:");
+            Console.Write("Ім'я користувача: ");
+            string username = Console.ReadLine();
+            Console.Write("Пароль: ");
+            string password = Console.ReadLine();
 
-            Console.WriteLine("Вхід успішний!");
-            UserMenu(username, orderProductService, userService, productService); // передаємо userService та productService
+            if (authService.Login(username, password))
+            {
+                // Отримуємо дані користувача
+                var user = userService.GetByUsername(username);
+                if (user != null)
+                {
+                    // Оновлюємо Session
+                    session.UserId = user.UserId;
+                    session.Username = user.Username;
+
+                    Console.WriteLine("Вхід успішний!");
+                    UserMenu(username, orderProductService, userService, productService); // передаємо userService та productService
+                }
+                else
+                {
+                    Console.WriteLine("Помилка: користувача не знайдено.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Невірні дані. Спробуйте ще раз.");
+            }
+
+            Console.WriteLine("Натисніть Enter, щоб повернутися до головного меню...");
+            Console.ReadLine();
         }
-        else
+
+            public  void Register(IAuthenticationService authService)
         {
-            Console.WriteLine("Помилка: користувача не знайдено.");
+            Console.Clear();
+            Console.WriteLine("Реєстрація нового користувача:");
+            Console.Write("Ім'я користувача: ");
+            string username = Console.ReadLine();
+            Console.Write("Пароль: ");
+            string password = Console.ReadLine();
+
+                if (authService.UserExistsByUsername(username))
+            {
+
+                Console.WriteLine("Користувач з таким ім'ям вже існує.");
+            }
+            else if (authService.Register(username, password))
+            {
+                Console.WriteLine("Реєстрація успішна!");
+            }
+            else
+            {
+                Console.WriteLine("Сталася помилка при реєстрації.");
+            }
+
+            Console.WriteLine("Натисніть Enter, щоб продовжити...");
+            Console.ReadLine();
         }
-    }
-    else
-    {
-        Console.WriteLine("Невірні дані. Спробуйте ще раз.");
-    }
-
-    Console.WriteLine("Натисніть Enter, щоб повернутися до головного меню...");
-    Console.ReadLine();
-}
-
-      public  void Register(IAuthenticationService authService)
-{
-    Console.Clear();
-    Console.WriteLine("Реєстрація нового користувача:");
-    Console.Write("Ім'я користувача: ");
-    string username = Console.ReadLine();
-    Console.Write("Пароль: ");
-    string password = Console.ReadLine();
-
-        if (authService.UserExistsByUsername(username))
-    {
-
-        Console.WriteLine("Користувач з таким ім'ям вже існує.");
-    }
-    else if (authService.Register(username, password))
-    {
-        Console.WriteLine("Реєстрація успішна!");
-    }
-    else
-    {
-        Console.WriteLine("Сталася помилка при реєстрації.");
-    }
-
-    Console.WriteLine("Натисніть Enter, щоб продовжити...");
-    Console.ReadLine();
-}
 
 
     public  void UserMenu(string username, IOrderProductService orderProductService, IUserService userService, IProductService productService)
