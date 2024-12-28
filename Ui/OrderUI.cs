@@ -1,8 +1,8 @@
 using IOrderProductServiceNamespace;
 
-public static class OrderUI
+public  class OrderUI
 {
-    public static void ViewOrderHistory(int userId, IOrderProductService orderProductService)
+    public void ViewOrderHistory(int userId, IOrderProductService orderProductService)
     {
         var orders = orderProductService.GetUserOrders(userId);
         Console.Clear();

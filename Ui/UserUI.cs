@@ -4,18 +4,19 @@ using IUserServiceNamespace;
 
 namespace UserUINamespace
 {
-    public static class UserUI
+    public  class UserUI
     {
-        private static ITransactionService _transactionService;
+        private  ITransactionService _transactionService;
 
         // Додаємо конструктор для ініціалізації залежності
-        public static void Initialize(ITransactionService transactionService)
+        public  void Initialize(ITransactionService transactionService)
         {
             _transactionService = transactionService;
         }
 
-        public static void ManageBalance(IUserService userService)
+        public  void ManageBalance(IUserService userService)
         {
+            Session session = new Session();
             Console.Clear();
             Console.WriteLine("Управління балансом:");
             Console.WriteLine("1. Поповнити баланс");
@@ -26,7 +27,7 @@ namespace UserUINamespace
             {
                 case "1":
                    // Перевіряємо, чи існує активний користувач
-            if (!Session.UserId.HasValue)
+            if (!session.UserId.HasValue)
             {
                 Console.WriteLine("Помилка: користувач не авторизований.");
                 Console.WriteLine("Натисніть Enter, щоб повернутися до меню...");
@@ -39,7 +40,7 @@ namespace UserUINamespace
             if (decimal.TryParse(Console.ReadLine(), out amount))
             {
                 // Викликаємо метод через екземпляр _transactionService
-                bool success = _transactionService.AddBalance(Session.UserId.Value, amount);
+                bool success = _transactionService.AddBalance(session.UserId.Value, amount);
 
                 if (success)
                 {

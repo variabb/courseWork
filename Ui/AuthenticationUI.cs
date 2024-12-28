@@ -9,10 +9,12 @@ using UserUINamespace;
 
 namespace AuthenticationUINamespace
 {
-    public static class AuthenticationUI
+    public  class AuthenticationUI
     {
-   public static void Login(IAuthenticationService authService, IOrderProductService orderProductService, IUserService userService, IProductService productService)
+        Session session = new Session();
+   public  void Login(IAuthenticationService authService, IOrderProductService orderProductService, IUserService userService, IProductService productService)
 {
+          
     Console.Clear();
     Console.WriteLine("Вхід в систему:");
     Console.Write("Ім'я користувача: ");
@@ -27,8 +29,8 @@ namespace AuthenticationUINamespace
         if (user != null)
         {
             // Оновлюємо Session
-            Session.UserId = user.UserId;
-            Session.Username = user.Username;
+            session.UserId = user.UserId;
+            session.Username = user.Username;
 
             Console.WriteLine("Вхід успішний!");
             UserMenu(username, orderProductService, userService, productService); // передаємо userService та productService
@@ -47,7 +49,7 @@ namespace AuthenticationUINamespace
     Console.ReadLine();
 }
 
-      public static void Register(IAuthenticationService authService)
+      public  void Register(IAuthenticationService authService)
 {
     Console.Clear();
     Console.WriteLine("Реєстрація нового користувача:");
@@ -75,10 +77,11 @@ namespace AuthenticationUINamespace
 }
 
 
-                            public static void UserMenu(string username, IOrderProductService orderProductService, IUserService userService, IProductService productService)
+    public  void UserMenu(string username, IOrderProductService orderProductService, IUserService userService, IProductService productService)
             {
-                var user = userService.GetByUsername(username);
-
+            var user = userService.GetByUsername(username);
+            OrderUI order = new OrderUI();
+            UserUI userObj = new UserUI();
                 if (user == null)
                 {
                     Console.WriteLine("Користувач не знайдений.");
@@ -107,10 +110,10 @@ namespace AuthenticationUINamespace
                             productUI.ViewProducts(productService, userService, userId);
                             break;
                         case "2":
-                            UserUI.ManageBalance(userService);
+                            userObj.ManageBalance(userService);
                             break;
                         case "3":
-                            OrderUI.ViewOrderHistory(userId, orderProductService);
+                            order.ViewOrderHistory(userId, orderProductService);
                             break;
                         case "4":
                             // Перегляд поточного балансу
@@ -121,7 +124,7 @@ namespace AuthenticationUINamespace
                             break;
                         case "5":
                             // Очищення сесії
-                            Session.Clear();
+                            session.Clear();
                             Console.WriteLine("Ви вийшли з системи.");
                             return;
                         default:

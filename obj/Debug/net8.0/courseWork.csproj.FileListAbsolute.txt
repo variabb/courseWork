@@ -13,3 +13,18 @@ D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8
 D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\courseWork.genruntimeconfig.cache
 D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\ref\courseWork.dll
 D:\Бурундук\універ\ООП\курсова\courseWork\obj\Debug\net8.0\courseWork.sourcelink.json
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\bin\Debug\net8.0\courseWork.exe
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\bin\Debug\net8.0\courseWork.deps.json
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\bin\Debug\net8.0\courseWork.runtimeconfig.json
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\bin\Debug\net8.0\courseWork.dll
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\bin\Debug\net8.0\courseWork.pdb
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.GeneratedMSBuildEditorConfig.editorconfig
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.AssemblyInfoInputs.cache
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.AssemblyInfo.cs
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.csproj.CoreCompileInputs.cache
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.sourcelink.json
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.dll
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\refint\courseWork.dll
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.pdb
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\courseWork.genruntimeconfig.cache
+D:\Бурундук\універ\курсова робота(ооп)\courseWork\obj\Debug\net8.0\ref\courseWork.dll

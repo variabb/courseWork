@@ -6,9 +6,9 @@ using IUserServiceNamespace;
 
 namespace MenuUINamespace
 {
-    public static class MenuUI
+    public  class MenuUI
     {
-          public static void MainMenu(IAuthenticationService authService, IOrderProductService orderProductService, IUserService userService, IProductService productService)
+          public  void MainMenu(IAuthenticationService authService, IOrderProductService orderProductService, IUserService userService, IProductService productService)
         {
             while (true)
             {
@@ -18,14 +18,15 @@ namespace MenuUINamespace
                 Console.WriteLine("2. Зареєструватися");
                 Console.WriteLine("3. Вийти");
 
+                AuthenticationUI authentication = new AuthenticationUI();
                 string choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "1":
-                        AuthenticationUI.Login(authService, orderProductService, userService, productService); // передаємо productService
+                        authentication.Login(authService, orderProductService, userService, productService); // передаємо productService
                         break;
                     case "2":
-                        AuthenticationUI.Register(authService);
+                        authentication.Register(authService);
                         break;
                     case "3":
                         Console.WriteLine("До побачення!");
