@@ -26,8 +26,6 @@ class Program
     static void Main(string[] args)
     {
         // Ініціалізація бази даних
-        UserUI user = new UserUI();
-        MenuUI menu = new MenuUI();
         var dbContext = new DbContext();
         var databaseSeeder = new DatabaseSeeder(dbContext);
         databaseSeeder.Seed();
@@ -48,6 +46,9 @@ class Program
         IAuthenticationService authService = new AuthenticationService(userService);
 
         // Ініціалізація інтерфейсу користувача
+        UserUI user = new UserUI();
+        MenuUI menu = new MenuUI();
+
         user.Initialize(transactionService);
 
         // Запуск головного меню

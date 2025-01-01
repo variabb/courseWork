@@ -8,7 +8,6 @@ public class OrderEntity {
     public int UserId { get; set; } // ID користувача
     public List<ProductEntity> Products { get; set; } = new List<ProductEntity>(); // список товарів
     public int Quantity { get; set; }
- 
     public decimal TotalAmount { get; set; } // сума
 }
 }
